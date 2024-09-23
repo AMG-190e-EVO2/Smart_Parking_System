@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Park Plus</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha512-QhkA4vRQqx8aN38iJcWU6CJAoUyaD2DSHqfpONi7lkW7cTzXnYcOehuRhYnHD/cJOcwHrCnUfmQISVW8ycwHw==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha512-8A7lValBxhv40aTsrMjYv/uRnXZVP2KM3Sa2BoLWbwqPAY+aHLrAoQvYWTiPUFGOQhCItSFoCqETq  eyLRU1gQ==" crossorigin=""></script>
+</head>
+<body>
+    <header class="hero-image">
+        <div class="hero-text">
+            <h1>PARK PLUS</h1>
+            <p>Find your perfect parking spot.</p>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Find Your Parking Spot</h2>
+                <form id="location-form">
+                    <div class="mb-3">
+                        <label for="locationInput" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="locationInput" placeholder="Enter location">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="results-container mt-4" id="resultsContainer">
+        </div>
+        <div class="map-container" id="mapContainer">
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <p class="text-center">&copy; 2024 Park Plus</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

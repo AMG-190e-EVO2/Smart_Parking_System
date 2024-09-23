@@ -1,0 +1,40 @@
+/* Hero image */
+.hero-image {
+    background-image: url("https://media.istockphoto.com/id/184370830/photo/cars-in-the-street.jpg?s=612x612&w=0&k=20&c=sEwaCgYubYbWFiPeBnWgAIsbi0f2x_X6xbOP6oP2fHQ=");
+    background-attachment: fixed; /* For parallax effect */
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    color:white;
+    text-align: center;
+    font-size: 60px;
+    font-family: "Roboto", sans-serif; /* Replace with your chosen font */
+}
+
+/* Search form */
+.search-form {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
