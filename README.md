@@ -1,7 +1,3 @@
-## **Funky Readme Markdown**
-
-**Check out this funky README for your GitHub repo!**
-
 ### ⚡ **Smart Parking Management System** ⚡
 
 **A super cool project that helps manage parking spaces efficiently.**
