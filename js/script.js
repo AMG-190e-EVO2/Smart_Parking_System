@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+const api_key = process.env.API_KEY;
+
 const locationForm = document.getElementById('location-form');
 const resultsContainer = document.getElementById('resultsContainer');
 const mapContainer = document.getElementById('mapContainer');
@@ -39,7 +43,7 @@ locationForm.addEventListener('submit', (event) => {
             // Get directions using OpenRouteService
             const origin = `${data.location.latitude},${data.location.longitude}`;
             const destination = `${lot.latitude},${lot.longitude}`;
-            const apiKey = '5b3ce3597851110001cf624868099505def444279b002dbc8a68dc42'; // Replace with your API key
+            const apiKey = api_key; // Replace with your API key
 
             fetch(`https://api.openrouteservice.org/v2/directions?api_key=${apiKey}&start=${origin}&end=${destination}&profile=driving`)
                 .then(response => response.json())
