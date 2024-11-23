@@ -1,4 +1,4 @@
-### ⚡ **Smart Parking Management System** ⚡
+### ⚡ ***Smart Parking Management System*** ⚡
 
 **A super cool project that helps manage parking spaces efficiently.**
 
@@ -15,4 +15,5 @@
 * **User authentication:** Allows users to create accounts and log in to access personalized features.
 * **Map integration:** Displays parking lots on a map and provides directions.
 
-**Let's rock this project!** 🤘
+**Let's rock this project!** 🤘 
+
