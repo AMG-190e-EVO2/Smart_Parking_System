@@ -1,62 +1,56 @@
-require('dotenv').config();
+let map;
+let marker;
 
-const api_key = process.env.API_KEY;
+function initMap() {
+    // Initialize map
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 0, lng: 0 },
+        zoom: 2
+    });
 
-const locationForm = document.getElementById('location-form');
-const resultsContainer = document.getElementById('resultsContainer');
-const mapContainer = document.getElementById('mapContainer');
+    // Add marker placeholder
+    marker = new google.maps.Marker({
+        map: map
+    });
 
-locationForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const locationInput = document.getElementById('locationInput').value;
+    // Search button event listener
+    document.getElementById('search-button').addEventListener('click', function () {
+        const searchInput = document.getElementById('search-input').value;
+        searchLocation(searchInput);
+    });
+}
 
-    // Make API call to your Flask backend
-    fetch(`/api/parking?location=${locationInput}`)
-        .then(response => response.json())
-        .then(data => {
-            // Display results in the resultsContainer
-            resultsContainer.innerHTML = `
-                <h2>Parking Lots Near ${locationInput}</h2>
-                <ul class="list-group">
-                    ${data.parkingLots.map(lot => `
-                        <li class="list-group-item">
-                            <strong>${lot.name}</strong>
-                            <p>Total Slots: ${lot.totalSlots}</p>
-                            <p>Available Slots: ${lot.availableSlots}</p>
-                        </li>
-                    `).join('')}
-                </ul>
-            `;
+function searchLocation(query) {
+    const geocoder = new google.maps.Geocoder();
 
-            // Display map using Open Street Map API
-            const map = L.map('mapContainer').setView([data.location.latitude, data.location.longitude], 15);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+    geocoder.geocode({ address: query }, function (results, status) {
+        if (status === 'OK') {
+            const location = results[0].geometry.location;
 
-            // Add markers for parking lots
-            data.parkingLots.forEach(lot => {
-                L.marker([lot.latitude, lot.longitude]).addTo(map)
-                    .bindPopup(`<strong>${lot.name}</strong><br>Total Slots: ${lot.totalSlots}<br>Available Slots: ${lot.availableSlots}`);
-            });
+            // Center map on searched location
+            map.setCenter(location);
+            map.setZoom(15);
 
-            // Get directions using OpenRouteService
-            const origin = `${data.location.latitude},${data.location.longitude}`;
-            const destination = `${lot.latitude},${lot.longitude}`;
-            const apiKey = api_key; // Replace with your API key
+            // Update marker position
+            marker.setPosition(location);
+            marker.setTitle(results[0].formatted_address);
 
-            fetch(`https://api.openrouteservice.org/v2/directions?api_key=${apiKey}&start=${origin}&end=${destination}&profile=driving`)
-                .then(response => response.json())
-                .then(routeData => {
-                    // Draw the route on the map
-                    const route = L.polyline(routeData.features[0].geometry.coordinates).addTo(map);
-                    map.fitBounds(route.getBounds());
-                })
-                .catch(error => {
-                    console.error('Error fetching route:', error);
-                });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-});
+            // Scroll to map
+            document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+
+// Load Google Maps API script dynamically
+function loadGoogleMapsApi() {
+    const script = document.createElement('script');
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA-E7XddrkUy_TNRGA2RcjTChuoloxg33E&libraries=places&callback=initMap";
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+}
+
+// Load the map when the window is ready
+window.onload = loadGoogleMapsApi;
