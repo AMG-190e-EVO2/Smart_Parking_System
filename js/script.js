@@ -46,7 +46,7 @@ function searchLocation(query) {
 // Load Google Maps API script dynamically
 function loadGoogleMapsApi() {
     const script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA-E7XddrkUy_TNRGA2RcjTChuoloxg33E&libraries=places&callback=initMap";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap";
     script.async = true;
     script.defer = true;
     document.head.appendChild(script);
