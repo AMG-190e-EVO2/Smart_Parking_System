@@ -3,10 +3,10 @@
 **A super cool project that helps manage parking spaces efficiently.**
 
 ### 🛠️ **Technologies Used**
-* **Frontend:** React, JavaScript, CSS
-* **Backend:** Node.js, Express.js, MongoDB
-* **Deep Learning:** TensorFlow/Keras
-* **Firebase:** Realtime Database, Cloud Functions
+* **Frontend:** HTML, CSS, JavaScript
+* **Backend:** JavaScript, Python
+* **Deep Learning:** TensorFlow, Yolov8 Model
+* **Firebase:** Realtime Database
 * **Google Maps API:** For map data and geocoding
 
 ### 🚀 **Features**
