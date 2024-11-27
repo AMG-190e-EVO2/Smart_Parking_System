@@ -1,4 +1,3 @@
-require('dotenv').config();
 let map;
 let marker;
 let presidencyMarker;
@@ -147,7 +146,7 @@ function calculateAndDisplayRoute(destination) {
 // Load Google Maps API script dynamically
 function loadGoogleMapsApi() {
   const script = document.createElement('script');
-  script.src = "https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap";
+  script.src = "https://maps.googleapis.com/maps/api/js?key=${YOUR_GOOGLE_MAPS_API_KEY_HERE}&libraries=places&callback=initMap";
   script.async = true;
   script.defer = true;
   document.head.appendChild(script);
