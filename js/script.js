@@ -79,10 +79,14 @@ function initMap() {
   });
 
   // Search button event listener
-  document.getElementById('search-button').addEventListener('click', function () {
-    const searchInput = document.getElementById('search-input').value;
+  document.getElementById("search-button").addEventListener("click", function () {
+    const searchInput = document.getElementById("search-input").value;
     searchLocation(searchInput);
+
+    // Scroll to the map section
+    document.getElementById("map-section").scrollIntoView({ behavior: "smooth" });
   });
+
 }
 
 function searchLocation(query) {
@@ -146,7 +150,7 @@ function calculateAndDisplayRoute(destination) {
 // Load Google Maps API script dynamically
 function loadGoogleMapsApi() {
   const script = document.createElement('script');
-  script.src = "https://maps.googleapis.com/maps/api/js?key=${YOUR_GOOGLE_MAPS_API_KEY_HERE}&libraries=places&callback=initMap";
+  script.src = "https://maps.googleapis.com/maps/api/js?key={YOUR_GOOGLE_MAPS_API_KEY_HERE}&libraries=places&callback=initMap";
   script.async = true;
   script.defer = true;
   document.head.appendChild(script);

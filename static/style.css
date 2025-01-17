@@ -1,46 +1,68 @@
-/* style.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f0f0f0;
 }
 
 .hero-image {
-  background-image: url("https://media.istockphoto.com/id/184370830/photo/cars-in-the-street.jpg?s=612x612&w=0&k=20&c=sEwaCgYubYbWFiPeBnWgAIsbi0f2x_X6xbOP6oP2fHQ=");
-  background-attachment: fixed; /* For parallax effect */
+  background-image: url("https://images.stockcake.com/public/9/6/a/96a44d2f-6907-4a4d-b789-7d53d9ef09d0_large/sunlit-parking-lot-stockcake.jpg");
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 400px; /* Adjust height as needed */
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  color: white; /* Set text color to white for better visibility on the image */
 }
 
-.hero-text h1 {
-  color:white;
+.search-section {
+  flex: 1;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  width: 300px; /* Adjust the width as needed */
+}
+
+.search-section label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.search-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.search-section button {
+  width: 100%;
+  padding: 10px;
+}
+
+
+
+.car-park-info {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  color: white;
   text-align: center;
-  font-size: 60px;
-  font-family: "Roboto", sans-serif;
+  font-size: 50px; /* Adjust font size as needed */
+  font-weight: bold;
+  
+  
+  
 }
 
-.hero-text p {
-  font-size: 2rem;
-  color:white;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-footer.footer {
-  background-color: #f8f9fa;
-  padding: 20px 0;
+.about {
   text-align: center;
+  padding: 30px 1;
 }
 
-.map-container {
-  margin-top: 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+.map-section {
+  padding: 50px 1;
 }
